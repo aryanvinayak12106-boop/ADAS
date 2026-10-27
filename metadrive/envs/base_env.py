@@ -153,6 +153,7 @@ BASE_DEFAULT_CONFIG = dict(
         overtake_stat=False,
         # If set to True, the default texture for the vehicle will be replaced with a pure color one.
         random_color=False,
+        color=None,
         # The shape of vehicle are predefined by its class. But in special scenario (WaymoVehicle) we might want to
         # set to arbitrary shape.
         width=None,
@@ -167,7 +168,7 @@ BASE_DEFAULT_CONFIG = dict(
 
         # ===== vehicle module config =====
         lidar=dict(
-            num_lasers=240, distance=50, num_others=0, gaussian_noise=0.0, dropout_prob=0.0, add_others_navi=False
+            num_lasers=240, distance=75, num_others=0, gaussian_noise=0.0, dropout_prob=0.0, add_others_navi=False
         ),
         side_detector=dict(num_lasers=0, distance=50, gaussian_noise=0.0, dropout_prob=0.0),
         lane_line_detector=dict(num_lasers=0, distance=20, gaussian_noise=0.0, dropout_prob=0.0),

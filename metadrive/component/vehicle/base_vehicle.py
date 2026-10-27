@@ -663,13 +663,19 @@ class BaseVehicle(BaseObject, BaseVehicleState):
             else:
                 car_model = BaseVehicle.model_collection[path]
             car_model.instanceTo(self.origin)
-            if self.config["random_color"]:
+            if self.config["random_color"] or self.config["color"] is not None:
+                color = self.config["color"] or (
+                    self.panda_color[0] * self.MATERIAL_COLOR_COEFF,
+                    self.panda_color[1] * self.MATERIAL_COLOR_COEFF,
+                    self.panda_color[2] * self.MATERIAL_COLOR_COEFF,
+                )
                 material = Material()
                 material.setBaseColor(
                     (
-                        self.panda_color[0] * self.MATERIAL_COLOR_COEFF,
-                        self.panda_color[1] * self.MATERIAL_COLOR_COEFF,
-                        self.panda_color[2] * self.MATERIAL_COLOR_COEFF, 0.
+                        color[0],
+                        color[1],
+                        color[2],
+                        1.
                     )
                 )
                 material.setMetallic(self.MATERIAL_METAL_COEFF)
